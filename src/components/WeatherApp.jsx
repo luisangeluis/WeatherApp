@@ -1,14 +1,27 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import WeatherBtn from './WeatherBtn';
 
 const WeatherApp = () => {
   const [coord, setCoord] = useState();
-  const [weather, setWeather] = useState({});
+  const [weather, setWeather] = useState();
+  const [fahrenheit, setFahrenheit] = useState(false);
 
   useEffect(() => {
+
     navigator.geolocation.getCurrentPosition(success);
-    getApi();
+
+    
   }, []);
+
+  useEffect(() => {
+
+    if(coord != undefined){
+      getApi();
+
+    }
+
+  }, [coord])
 
   function success(crd) {
     console.log(crd);
@@ -21,32 +34,46 @@ const WeatherApp = () => {
   const getApi = () => {
     const key = '4214c6fe0c0be71f13084263dd5761b1';
     axios
-      .get(
-        `https://api.openweathermap.org/data/2.5/weather?lat=${coord?.latitude}&lon=${coord?.longitude}&exclude=hourly&appid=${key}`
-      )
+      .get(`https://api.openweathermap.org/data/2.5/weather?lat=${coord?.latitude}&lon=${coord?.longitude}&units=metric&appid=${key}`)
       .then((res) => {
         console.log(res.data);
-        // setWeather(res.data);
+        setWeather(res.data);
       })
-      .catch((error) => console.log(error));
-  };
+      .catch((error) => console.log(error))
+  }
 
-  console.log(coord);
+  const convertDegrees = () => {
+    setFahrenheit(!fahrenheit);
+  }
+
+  const convert = () => {
+    let fahrenheitValue = (9 / 5 * weather?.main.temp) + 32;
+    return fahrenheitValue;
+  }
+
   return (
     <>
-      <div className="card">
-        {/* <img src="..." className="card-img-top" alt="..." /> */}
-        <div className="card-body">
-          <h5 className="card-title">{weather?.name}</h5>
-          <p className="card-text">
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
-          </p>
-          <a href="#" className="btn btn-primary">
-            Go somewhere
-          </a>
+      <div className="container wheather-app_container">
+        <div className="card">
+          <div className="card-body">
+            <h2>Weather App</h2>
+            <h2 className="card-title p-2">{weather?.name}, {weather?.sys.country}</h2>
+            <div className="row">
+              <div className="col-6">
+                <h3>{fahrenheit ? `${convert()} °F` :`${weather?.main.temp} °C` }</h3>
+              </div>
+              <div className="col-6 text-start">
+                <h3 className="text-center">"{weather?.weather[0].description}"</h3>
+                <h3>Wind speed <b>{weather?.wind.speed} m/s</b></h3>
+                <h3>Clouds <b>{weather?.clouds.all}%</b></h3>
+                <h3>Pressure <b>{weather?.main.pressure}mb</b></h3>
+              </div>
+            </div>
+            <WeatherBtn convertDegrees={convertDegrees} />
+          </div>
         </div>
       </div>
+
     </>
   );
 };
