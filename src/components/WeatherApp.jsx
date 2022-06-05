@@ -52,29 +52,29 @@ const WeatherApp = () => {
   }
 
   return (
-    <>
+     
       <div className="container wheather-app_container">
         <div className="card">
           <div className="card-body">
             <h2>Weather App</h2>
             <h2 className="card-title p-2">{weather?.name}, {weather?.sys.country}</h2>
             <div className="row">
-              <div className="col-6">
-                <h3>{fahrenheit ? `${convert()} °F` :`${weather?.main.temp} °C` }</h3>
+              <div className="col-sm-5 p-2">
+                <img src={`http://openweathermap.org/img/wn/${weather?.weather[0].icon}@4x.png`} alt="" className='img-fluid'/>
+                <h3>{fahrenheit ? `${convert().toFixed(2)} °F` :`${weather?.main.temp} °C` }</h3>
               </div>
-              <div className="col-6 text-start">
+              <div className="col-sm-7 text-center text-sm-start p-2">
                 <h3 className="text-center">"{weather?.weather[0].description}"</h3>
-                <h3>Wind speed <b>{weather?.wind.speed} m/s</b></h3>
-                <h3>Clouds <b>{weather?.clouds.all}%</b></h3>
-                <h3>Pressure <b>{weather?.main.pressure}mb</b></h3>
+                <h3><i className="fa-solid fa-wind"></i>Wind speed <b>{weather?.wind.speed} m/s</b></h3>
+                <h3><i className="fa-solid fa-cloud"></i>Clouds <b>{weather?.clouds.all}%</b></h3>
+                <h3><i className="fa-solid fa-temperature-half"></i>Pressure <b>{weather?.main.pressure}mb</b></h3>
               </div>
             </div>
             <WeatherBtn convertDegrees={convertDegrees} />
           </div>
         </div>
       </div>
-
-    </>
+    
   );
 };
 

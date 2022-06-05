@@ -1,10 +1,28 @@
+html,body{
+  height: 100%;
+}
+
+.wheather-app_container{
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .wheather-app_container .card{
   max-width: 40rem;
   min-height: 25rem;
   text-align: center;
-  background-color: lightblue;
-  opacity: .9;
+  background-color: lightskyblue;
+  /* opacity: .8; */
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
 
+}
+
+.wheather-app_container .card .img-fluid{
+  flex-grow: 0;
+  opacity: .8;
 }
 .wheather-app_container .card-body{
   display: flex;
@@ -12,10 +30,33 @@
   justify-content: space-evenly;
   text-align: center;
 }
-.wheather-app_container .card-body button{
-  align-self: center;
-}
+
+
 .wheather-app_container .card-body>.row{
   align-items: center;
   flex-grow: 1;
-} 
+}
+.wheather-app_container h2,.wheather-app_container h3{
+  color: #6610f2;
+}
+.wheather-app_container h2 b,.wheather-app_container h3 b{
+  color: #08070f;
+}
+.wheather-app_container .card-body button{
+  align-self: center;
+  box-shadow: none;
+  background-color: #6610f2;
+  /* outline: #6610f2; */
+  outline-color: none;
+
+}
+
+.wheather-app_container .card-body button:visited,
+.wheather-app_container .card-body button:focus,
+.wheather-app_container .card-body button:active,
+.wheather-app_container .card-body button:hover,
+.wheather-app_container .card-body button:focus{
+  /* outline: #6610f2; */
+  box-shadow: none;
+  outline-color: none;
+}
