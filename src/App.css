@@ -1,7 +1,9 @@
 html,body{
   height: 100%;
 }
-
+.App{
+  
+}
 .wheather-app_container{
   min-height: 100vh;
   display: flex;

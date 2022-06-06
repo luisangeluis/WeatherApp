@@ -1,13 +1,20 @@
 import { useState } from 'react';
 import './App.css';
 import WeatherApp from './components/WeatherApp';
-import clima from './assets/images/clima.png';
+import clima from './climas.png';
 
 function App() {
   const [count, setCount] = useState(0);
-
+  console.log(clima);
   return (
-    <div className="App" style={{ background:`url(${clima}) no-repeat`,backgroundSize:'cover'}}>
+    <div
+      className="App"
+      style={{
+        backgroundImage: 'url("' + clima + '")',
+        // backgroundColor: 'red',
+      }}
+    >
+      <img src={clima} alt="clima" />
       <div className="weather-app">
         <WeatherApp />
       </div>
