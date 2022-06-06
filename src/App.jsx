@@ -10,7 +10,7 @@ function App() {
     <div
       className="App"
       style={{
-        backgroundImage: 'url("' + clima + '")',
+        backgroundImage: `url(${clima})`,
         // backgroundColor: 'red',
       }}
     >
