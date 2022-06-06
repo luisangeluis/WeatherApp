@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './App.css';
 import WeatherApp from './components/WeatherApp';
-import clima from './climas.png';
+import clima from './clima.png';
 
 function App() {
   const [count, setCount] = useState(0);
