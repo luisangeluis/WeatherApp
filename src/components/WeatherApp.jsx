@@ -2,25 +2,35 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import WeatherBtn from './WeatherBtn';
 
-const WeatherApp = () => {
+const WeatherApp = ({ setMainBg }) => {
   const [coord, setCoord] = useState();
   const [weather, setWeather] = useState();
   const [fahrenheit, setFahrenheit] = useState(false);
 
   useEffect(() => {
     // navigator.geolocation.getCurrentPosition(success);
+    getApi();
   }, []);
 
   useEffect(() => {
     // if (coord != undefined) {
     //   getApi();
     // }
+
+    if (weather != undefined) {
+      console.log(weather.weather[0].description);
+      let weatherValue = weather.weather[0].description.replace(/ /g, '_');
+      console.log(weatherValue);
+      setMainBg(weatherValue);
+    }
   }, [coord]);
 
   function success(crd) {
     console.log(crd);
     let latitude = crd.coords.latitude;
     let longitude = crd.coords.longitude;
+    console.log(latitude);
+    console.log(longitude);
 
     setCoord({ latitude, longitude });
   }
@@ -29,7 +39,8 @@ const WeatherApp = () => {
     const key = '4214c6fe0c0be71f13084263dd5761b1';
     axios
       .get(
-        `https://api.openweathermap.org/data/2.5/weather?lat=${coord?.latitude}&lon=${coord?.longitude}&units=metric&appid=${key}`
+        // `https://api.openweathermap.org/data/2.5/weather?lat=${coord?.latitude}&lon=${coord?.longitude}&units=metric&appid=${key}`
+        `https://api.openweathermap.org/data/2.5/weather?lat=${47.7510741}&lon=${-120.7401386}&units=metric&appid=${key}`
       )
       .then((res) => {
         console.log(res.data);
