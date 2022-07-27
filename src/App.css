@@ -4,7 +4,7 @@ body {
 }
 .App {
   min-height: 100vh;
-  background: url(./nubes.webp) no-repeat;
+  background-image: url('./nubes.webp') no-repeat;
   background-size: cover;
 }
 .wheather-app_container {
@@ -12,15 +12,13 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  
-
 }
 .wheather-app_container .card {
   max-width: 40rem;
   min-height: 25rem;
   text-align: center;
   background-color: #273746;
-  opacity: .95;
+  opacity: 0.95;
   margin-left: auto;
   margin-right: auto;
   border-radius: 10px;
@@ -43,7 +41,7 @@ body {
 }
 .wheather-app_container h2,
 .wheather-app_container h3 {
-  color: #5D6D7E;
+  color: #5d6d7e;
 }
 .wheather-app_container h2 b,
 .wheather-app_container h3 b {
@@ -52,7 +50,7 @@ body {
 .wheather-app_container .card-body button {
   align-self: center;
   box-shadow: none;
-  background-color: #E74C3C;
+  background-color: #e74c3c;
 }
 
 .wheather-app_container .card-body button:visited,
@@ -61,5 +59,4 @@ body {
 .wheather-app_container .card-body button:hover,
 .wheather-app_container .card-body button:focus {
   box-shadow: none;
-  
 }
