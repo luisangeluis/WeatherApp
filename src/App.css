@@ -161,17 +161,32 @@ body {
   color: #08070f;
 }
 
-/* .wheather-app_container .card-body button:visited,
-.wheather-app_container .card-body button:active,
-.wheather-app_container .card-body button:hover,
-.wheather-app_container .card-body button:focus {
-  box-shadow: none;
-} */
+/***************/
+/* Loader */
+/***************/
+.bg-loader {
+  min-height: 100vh;
+  min-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: #08070f10; */
+  background: #485563; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #29323c,
+    #485563
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #29323c,
+    #485563
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
 
 /***************/
 /* Animations */
 /***************/
-
 @keyframes quake {
   0% {
     -webkit-transform: rotateZ(-1deg) scale(1.02);

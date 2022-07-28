@@ -111,8 +111,10 @@ const WeatherApp = ({ setMainBg }) => {
           </div>
         </div>
       ) : (
-        <div className="spinner-border" role="status">
-          <span className="visually-hidden">Loading...</span>
+        <div className="bg-loader">
+          <div class="spinner-grow text-dark" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
         </div>
       )}
     </div>
