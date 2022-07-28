@@ -1,14 +1,13 @@
-html{
-  font-family: roboto,sans-serif;
+html {
+  font-family: roboto, sans-serif;
 }
 
-button{
+button {
   box-shadow: none;
   border-style: none;
   outline: none;
-
 }
-button:focus{
+button:focus {
   outline: none;
   box-shadow: none;
 }
@@ -21,8 +20,6 @@ body {
   min-height: 100vh;
   background-size: cover;
   /* background-image: url(./scattered.jpg); */
-  
-
 }
 .wheather-app_container {
   min-height: 100vh;
@@ -34,22 +31,102 @@ body {
   max-width: 40rem;
   min-height: 25rem;
   text-align: center;
-  background-color: #273746;
+  background-color: #27374601;
   margin-left: auto;
   margin-right: auto;
   border-radius: 10px;
-  box-shadow: 0 0 100px 25px silver;
+  box-shadow: 0 0 25px 5px silver;
+
+  transition: animation 200ms ease;
+}
+
+.wheather-app_container .card:hover {
+  /* transform: translateX(10px); */
+  animation: quake 200ms;
+  box-shadow: 0 0 50px 10px silver;
+  background-color: #27374610;
 }
 
 .wheather-app_container .card .img-fluid {
   flex-grow: 0;
-  opacity: 0.8;
+  color: red;
 }
 .wheather-app_container .card-body {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   text-align: center;
+  position: relative;
+}
+
+.animated-cloud {
+  position: absolute;
+  width: 50%;
+  height: 12%;
+  top: 10%;
+  left: 0%;
+  background-color: white;
+  opacity: 0.3;
+  border-radius: 100px;
+}
+
+.animated-cloud:nth-child(1) {
+  width: 50%;
+  height: 12%;
+  top: 10%;
+  left: 0%;
+  animation: cloud 12s infinite linear;
+}
+
+.animated-cloud:nth-child(2) {
+  width: 25%;
+  height: 5%;
+  top: 50%;
+  left: 0%;
+  animation: cloud 9s infinite linear;
+}
+
+.animated-cloud:nth-child(3) {
+  width: 15%;
+  height: 4%;
+  top: 25%;
+  left: 0%;
+  animation: cloud 5s infinite linear;
+}
+
+@keyframes cloud {
+  0% {
+    opacity: 0.1;
+    left: 10%;
+  }
+  50% {
+    opacity: 0.2;
+    /* left: 30%; */
+  }
+  100% {
+    opacity: 0;
+    left: 50%;
+  }
+}
+.animated-cloud::before {
+  content: '';
+  position: absolute;
+  top: -80%;
+  left: 10%;
+  width: 50%;
+  height: 150%;
+  background-color: white;
+  border-radius: 50%;
+}
+.animated-cloud::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: 50%;
+  width: 30%;
+  height: 100%;
+  background-color: white;
+  border-radius: 50%;
 }
 
 .wheather-app_container .card-body > .row {
@@ -69,7 +146,17 @@ body {
   box-shadow: none;
   background-color: #303233;
   color: #fff;
+}
 
+.wheather-app_container .card-body button:hover {
+  -webkit-transform: scale(1.05);
+  transform: scale(1.05);
+  opacity: 0.75;
+}
+
+.wheather-app_container .main-title {
+  font-weight: bold;
+  color: #08070f;
 }
 
 /* .wheather-app_container .card-body button:visited,
@@ -78,3 +165,25 @@ body {
 .wheather-app_container .card-body button:focus {
   box-shadow: none;
 } */
+
+/***************/
+/* Animations */
+/***************/
+
+@keyframes quake {
+  0% {
+    -webkit-transform: rotateZ(-1deg) scale(1.02);
+    transform: rotateZ(-1deg) scale(1.03);
+  }
+  50% {
+    /* transform: rotateZ(0deg); */
+    -webkit-transform: rotateZ(0deg) scale(1.01);
+    transform: rotateZ(0deg) scale(1.01);
+  }
+  100% {
+    /* transform: rotateZ(1deg);
+    transform: rotateZ(0deg); */
+    -webkit-transform: rotateZ(0.5deg) scale(1);
+    transform: rotateZ(0.5deg) scale(1);
+  }
+}
