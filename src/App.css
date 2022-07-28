@@ -165,12 +165,12 @@ body {
 /* Loader */
 /***************/
 .bg-loader {
+  position: absolute;
   min-height: 100vh;
   min-width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  /* background-color: #08070f10; */
   background: #485563; /* fallback for old browsers */
   background: -webkit-linear-gradient(
     to right,
