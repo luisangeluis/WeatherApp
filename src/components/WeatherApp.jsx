@@ -8,22 +8,27 @@ const WeatherApp = ({ setMainBg }) => {
   const [fahrenheit, setFahrenheit] = useState(false);
 
   useEffect(() => {
-    // navigator.geolocation.getCurrentPosition(success);
-    getApi();
+    navigator.geolocation.getCurrentPosition(success);
+    // getApi();
   }, []);
 
   useEffect(() => {
-    // if (coord != undefined) {
-    //   getApi();
-    // }
+    if (coord != undefined) {
+      getApi();
+    }
 
-    if (weather != undefined) {
+    
+  }, [coord]);
+
+  useEffect(() => {
+    if(weather!=undefined){
       console.log(weather.weather[0].description);
       let weatherValue = weather.weather[0].description.replace(/ /g, '_');
       console.log(weatherValue);
       setMainBg(weatherValue);
     }
-  }, [coord]);
+  }, [weather])
+  
 
   function success(crd) {
     console.log(crd);
@@ -38,10 +43,7 @@ const WeatherApp = ({ setMainBg }) => {
   const getApi = () => {
     const key = '4214c6fe0c0be71f13084263dd5761b1';
     axios
-      .get(
-        // `https://api.openweathermap.org/data/2.5/weather?lat=${coord?.latitude}&lon=${coord?.longitude}&units=metric&appid=${key}`
-        `https://api.openweathermap.org/data/2.5/weather?lat=${47.7510741}&lon=${-120.7401386}&units=metric&appid=${key}`
-      )
+      .get(`https://api.openweathermap.org/data/2.5/weather?lat=${coord?.latitude}&lon=${coord?.longitude}&units=metric&appid=${key}`)
       .then((res) => {
         console.log(res.data);
         setWeather(res.data);
@@ -62,8 +64,8 @@ const WeatherApp = ({ setMainBg }) => {
   return (
     <div className="container wheather-app_container">
       {
-        // weather ? (
-        <div className="card">
+        weather ? (
+        <div className="card border border-3 border-light">
           <div className="card-body">
             <h2>Weather App</h2>
             <h2 className="card-title p-2">
@@ -103,12 +105,12 @@ const WeatherApp = ({ setMainBg }) => {
             <WeatherBtn convertDegrees={convertDegrees} />
           </div>
         </div>
-        // )
-        // : (
-        //   <div className="spinner-border" role="status">
-        //     <span className="visually-hidden">Loading...</span>
-        //   </div>
-        // )
+        )
+        : (
+          <div className="spinner-border" role="status">
+            <span className="visually-hidden">Loading...</span>
+          </div>
+        )
       }
     </div>
   );

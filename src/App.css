@@ -1,3 +1,18 @@
+html{
+  font-family: roboto,sans-serif;
+}
+
+button{
+  box-shadow: none;
+  border-style: none;
+  outline: none;
+
+}
+button:focus{
+  outline: none;
+  box-shadow: none;
+}
+
 html,
 body {
   height: 100%;
@@ -5,6 +20,9 @@ body {
 .App {
   min-height: 100vh;
   background-size: cover;
+  /* background-image: url(./scattered.jpg); */
+  
+
 }
 .wheather-app_container {
   min-height: 100vh;
@@ -17,10 +35,10 @@ body {
   min-height: 25rem;
   text-align: center;
   background-color: #273746;
-  opacity: 0.95;
   margin-left: auto;
   margin-right: auto;
   border-radius: 10px;
+  box-shadow: 0 0 100px 25px silver;
 }
 
 .wheather-app_container .card .img-fluid {
@@ -49,13 +67,14 @@ body {
 .wheather-app_container .card-body button {
   align-self: center;
   box-shadow: none;
-  background-color: #e74c3c;
+  background-color: #303233;
+  color: #fff;
+
 }
 
-.wheather-app_container .card-body button:visited,
-.wheather-app_container .card-body button:focus,
+/* .wheather-app_container .card-body button:visited,
 .wheather-app_container .card-body button:active,
 .wheather-app_container .card-body button:hover,
 .wheather-app_container .card-body button:focus {
   box-shadow: none;
-}
+} */
