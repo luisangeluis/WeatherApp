@@ -8,8 +8,8 @@ const WeatherApp = ({ setMainBg }) => {
   const [fahrenheit, setFahrenheit] = useState(false);
 
   useEffect(() => {
-    // navigator.geolocation.getCurrentPosition(success);
-    getApi();
+    navigator.geolocation.getCurrentPosition(success);
+    // getApi();
   }, []);
 
   useEffect(() => {
@@ -41,8 +41,8 @@ const WeatherApp = ({ setMainBg }) => {
     const key = '4214c6fe0c0be71f13084263dd5761b1';
     axios
       .get(
-        // `https://api.openweathermap.org/data/2.5/weather?lat=${coord?.latitude}&lon=${coord?.longitude}&units=metric&appid=${key}`
-        `https://api.openweathermap.org/data/2.5/weather?lat=47.7510741&lon=-120.7401386&units=metric&appid=${key}`
+        `https://api.openweathermap.org/data/2.5/weather?lat=${coord?.latitude}&lon=${coord?.longitude}&units=metric&appid=${key}`
+        // // `https://api.openweathermap.org/data/2.5/weather?lat=47.7510741&lon=-120.7401386&units=metric&appid=${key}`
       )
       .then((res) => {
         console.log(res.data);
