@@ -97,10 +97,12 @@ body {
 @keyframes cloud {
   0% {
     /* opacity: 0.9; */
+    opacity: 0.5;
+
     left: 10%;
   }
   50% {
-    opacity: 0.5;
+    /* opacity: 0.5; */
     /* left: 30%; */
   }
   100% {

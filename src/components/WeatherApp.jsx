@@ -23,7 +23,8 @@ const WeatherApp = ({ setMainBg }) => {
       console.log(weather.weather[0].description);
       let weatherValue = weather.weather[0].description.replace(/ /g, '_');
       console.log(weatherValue);
-      setMainBg(weatherValue);
+      // setMainBg(weatherValue);
+      setMainBg('shower_rain');
     }
   }, [weather]);
 
