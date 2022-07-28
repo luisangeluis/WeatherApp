@@ -19,7 +19,7 @@ body {
 .App {
   min-height: 100vh;
   background-size: cover;
-  /* background-image: url(./scattered.jpg); */
+  background-image: url(./scattered.jpg);
 }
 .wheather-app_container {
   min-height: 100vh;

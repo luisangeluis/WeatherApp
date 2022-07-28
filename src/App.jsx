@@ -41,9 +41,8 @@ function App() {
     <div
       className="App"
       ref={app}
-      style={{ backgroundImage:`url(./src/${imagesClima[mainBg]})` }}
+      style={{ backgroundImage: `url(${imagesClima[mainBg]})` }}
       // style={{ backgroundImage:`url(./src/mist.jpg)` }}
-
     >
       <div className="weather-app">
         <WeatherApp setMainBg={setMainBg} />
