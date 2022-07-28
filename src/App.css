@@ -37,12 +37,12 @@ body {
   border-radius: 10px;
   box-shadow: 0 0 25px 5px silver;
 
-  transition: animation 200ms ease;
+  transition: all 500ms ease;
 }
 
 .wheather-app_container .card:hover {
-  /* transform: translateX(10px); */
-  animation: quake 200ms;
+  -webkit-transform: scale(1.02);
+  transform: scale(1.02);
   box-shadow: 0 0 50px 10px silver;
   background-color: #27374610;
 }
