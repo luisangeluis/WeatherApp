@@ -22,25 +22,8 @@ function App() {
       'https://www.rescueairtx.com/images/blog/png-base64dd1fe11ef962dc81.png',
     snow: 'https://www.collinsdictionary.com/images/full/snow_306991961.jpg',
     mist: 'https://res.cloudinary.com/dtpgi0zck/image/upload/s--f6RuTVBB--/c_fit,h_580,w_860/v1/EducationHub/photos/blue-mist.jpg',
+    overcast_clouds:'https://s3.envato.com/files/135987809/Image%20Preview.jpg'
   };
-
-  const setBg = (bg) => {
-    // let currentBg = '';
-    // for (let clave in imagesClima) {
-    //   if (imagesClima[clave] === bg) {
-    //     currentBg = imagesClima[clave].value;
-    //   }
-    // }
-    // console.log(currentBg);
-    // setMainBg(currentBg);
-  };
-
-  useEffect(() => {
-    // if (mainBg) {
-    //   console.log(mainBg);
-    //   setBg(mainBg);
-    // }
-  }, []);
 
   console.log(mainBg);
   return (
