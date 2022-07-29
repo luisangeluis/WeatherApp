@@ -23,7 +23,13 @@ const WeatherApp = ({ setMainBg }) => {
       console.log(weather.weather[0].description);
       let weatherValue = weather.weather[0].description.replace(/ /g, '_');
       console.log(weatherValue);
-      setMainBg(weatherValue);
+
+      if(weatherValue){
+        setMainBg(weatherValue);
+
+      }else{
+        setMainBg('clear_sky');
+      }
       // setMainBg('shower_rain');
     }
   }, [weather]);
